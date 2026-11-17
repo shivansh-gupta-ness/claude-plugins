@@ -1,0 +1,6 @@
+{
+  "name": "core",
+  "version": "0.1.0",
+  "description": "Core Mini WMS workflow: ticket-scout (read-only brief) and start-ticket skill",
+  "author": { "name": "shivansh-gupta-ness" }
+}

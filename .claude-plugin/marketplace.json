@@ -1,0 +1,13 @@
+{
+  "name": "mini-wms-plugins",
+  "owner": { "name": "shivansh-gupta-ness" },
+  "metadata": { "description": "Private plugin marketplace for the Mini WMS Claude Code evaluation", "version": "0.1.0" },
+  "plugins": [
+    {
+      "name": "core",
+      "source": "./plugins/core",
+      "description": "Pilot set: ticket-scout agent and /start-ticket skill (local tickets/ and docs/ instead of Jira and Confluence)",
+      "version": "0.1.0"
+    }
+  ]
+}
