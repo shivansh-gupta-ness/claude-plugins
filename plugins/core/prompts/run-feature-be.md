@@ -411,6 +411,7 @@ Ticket   : tickets/<STORY_KEY>.md
 
 Prompts run  : A, 2, 3, 4, B, 5.8
 Reports      : <count> files filed under docs/reports/<STORY_KEY>/ (<comma-separated names>)
+AC results   : PASS <x>, FAIL <y>, N/A <z>, NOT RUN <w> (docs/reports/<STORY_KEY>/ac-results.md; roll-up row added to docs/reports/ac-log.md)
 Tests added  : <count> new [Fact]/[Theory] methods across all services
 Gates        : PASS / NOT READY / NEEDS HUMAN INTERVENTION
 

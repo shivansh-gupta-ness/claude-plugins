@@ -4,7 +4,7 @@ Private plugin marketplace for the Mini WMS evaluation (see `mini-wms`, `Claude 
 
 | Plugin | Contents | Status |
 |---|---|---|
-| `core` | `ticket-scout`, `change-implementer`, `test-writer` agents; `start-ticket`, `run-feature-be`, `run-feature-fe` skills; the three adapted pipeline prompts in `plugins/core/prompts/` | pilot set (v0.3.0) |
+| `core` | `ticket-scout`, `change-implementer`, `test-writer` agents; `start-ticket`, `run-feature-be`, `run-feature-fe` skills; the three adapted pipeline prompts in `plugins/core/prompts/` | pilot set (v0.3.1) |
 
 Editing agents in a plugin: plugin subagents ignore their own `hooks`, `mcpServers` and `permissionMode` fields. `change-implementer` and `test-writer` are shipped here, but the scope guard, command guard, formatting and test hooks must come from the consuming repo's `.claude/settings.json` (settings hooks also run inside subagents). Install this plugin only in repos that carry that harness (`mini-wms` does). An agent of the same name in a repo's `.claude/agents/` takes precedence over the plugin's.
 

@@ -11,7 +11,7 @@ Run the backend pipeline for `$ARGUMENTS`.
 
 Preconditions (check first; STOP and tell the owner if any fails)
 - `/start-ticket` was run for this ID, the owner approved the plan, and `.claude/state/active-ticket.json` names this ticket.
-- The ticket's component is a backend component and `allowed_paths` covers `src/backend/**`, `docs/reports/<ID>/**` and `tickets/<ID>.md` (Prompt 5 §8.e appends a `## Delivery` section to the ticket).
+- The ticket's component is a backend component and `allowed_paths` covers `src/backend/**`, `docs/reports/<ID>/**`, `docs/reports/ac-log.md` and `tickets/<ID>.md` (Prompt 5 §8.e appends a `## Delivery` section to the ticket).
 - The ticket `risk` is low or medium. For high or blocked, stop: agents read and propose only.
 - `git status` is clean apart from this ticket's work and `prompt_logs/` (which changes every turn and is ignored), and the current branch is `<feat|bug|task>/<ID>-*`.
 
@@ -25,4 +25,5 @@ Method
    - Prompt 5 §7-8 (story summary, `docs/reports/<ID>/`): the main session.
 3. Stop at every STOP condition in the pipeline and print the STOP REPORT; resume only with the owner's answers.
 4. Stage only; never commit or push. At the end print the "Pipeline complete" block and remind the owner to review `git diff --staged`, run `/code-review`, and open the PR.
-5. Use `node scripts/token-report.mjs` output (or `prompt_logs/token_usage.md`) to quote the token cost of the run in your final message.
+5. Quote the AC totals from `docs/reports/<ID>/ac-results.md` in your final message.
+6. Use `node scripts/token-report.mjs` output (or `prompt_logs/token_usage.md`) to quote the token cost of the run in your final message.
