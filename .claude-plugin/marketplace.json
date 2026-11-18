@@ -7,7 +7,7 @@
       "name": "core",
       "source": "./plugins/core",
       "description": "Pilot set: ticket-scout, change-implementer, test-writer agents and /start-ticket skill (local tickets/ and docs/ instead of Jira and Confluence)",
-      "version": "0.3.0"
+      "version": "0.3.1"
     }
   ]
 }

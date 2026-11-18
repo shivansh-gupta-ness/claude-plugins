@@ -418,6 +418,11 @@ is the ticket ACs and the Target Contract from Prompt A.
      (with file + line citations for both sides), and any items flagged for human verification.
    - Fix iteration log (gap description, change made, files changed, result per iteration).
    - Final status: PASS / NOT READY / NEEDS HUMAN INTERVENTION.
+   - AC RESULTS LOG (local harness rule): every AC ends with a recorded result. Write `docs/reports/STORY_KEY/ac-results.md` from the real test
+     output above (never from memory) as a table with one row per AC: `AC #` | `AC text` | `Result` | `Test(s) that prove it` | `Evidence` (test run / report file) | `Date`.
+     Result is exactly one of PASS, FAIL, N/A (with the reason) or NOT RUN (with the reason). Map the table above as: SATISFIED -> PASS;
+     PARTIAL and NOT SATISFIED -> FAIL; N/A -> N/A; anything not exercised -> NOT RUN. Add a final line `Totals: PASS x, FAIL y, N/A z, NOT RUN w`.
+     A ticket is not done while any AC is FAIL or NOT RUN without a written owner decision in this file.
    This output replaces the equivalence report from Prompt 5 §6. Cite it as "AC Verification
    Report (Prompt B)" in the Story Summary produced in Prompt 5 §7.
 
@@ -483,8 +488,11 @@ After producing the summary, file the reports (local replacement for the origina
 
 **§8.d** Stage `docs/reports/<STORY_KEY>/` explicitly with the source changes (list files individually; never `git add .`). Do NOT delete the local reports.
 
-**§8.e** Append a `## Delivery` section to `tickets/<STORY_KEY>.md`: the report file list, the gate status and the PR checklist. Stage the ticket file.
-  The ticket's `allowed_paths` must include `docs/reports/<STORY_KEY>/**`; if it does not, STOP and ask the owner to add it.
+**§8.e** Append a `## Delivery` section to `tickets/<STORY_KEY>.md`: the report file list, a link to `docs/reports/<STORY_KEY>/ac-results.md` with its Totals line, the gate status and the PR checklist. Stage the ticket file.
+
+**§8.f** Append one row to the roll-up `docs/reports/ac-log.md` (create it with the header below if it is missing): `Date | Ticket | Module | ACs | PASS | FAIL | N/A | NOT RUN | Mapping % | Pass % | Coverage % | PR`. Counts come from `ac-results.md`; the gate numbers come from Prompt 4; leave PR blank (the owner fills it when the PR is open). Stage the file. If `ac-log.md` is not in the ticket's `allowed_paths`, STOP and ask the owner to add it.
+`| Date | Ticket | Module | ACs | PASS | FAIL | N/A | NOT RUN | Mapping % | Pass % | Coverage % | PR |`
+  The ticket's `allowed_paths` must include `docs/reports/<STORY_KEY>/**` and `docs/reports/ac-log.md`; if it does not, STOP and ask the owner to add it.
 
 **Why the reports are in the repo:** there is no external ticket system. The ticket file and `docs/reports/<STORY_KEY>/` are the single
 source of truth for ticket-level artefacts, reviewed with the code in the PR.

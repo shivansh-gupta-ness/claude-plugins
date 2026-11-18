@@ -685,6 +685,12 @@ document too.
 
 ### 9.5 Final report
 
+**AC results log (local harness rule).** Before printing the report, write `docs/reports/<TICKET_ID>/ac-results.md` and append one row to `docs/reports/ac-log.md`
+(create it with the header `| Date | Ticket | Module | ACs | PASS | FAIL | N/A | NOT RUN | Mapping % | Pass % | Coverage % | PR |` if missing; leave PR blank). One table row per acceptance
+criterion of `tickets/<TICKET_ID>.md`: `AC #` | `AC text` | `Result` | `Spec / test that proves it` | `Evidence` | `Date`. Result is exactly one of PASS, FAIL, N/A (with the reason) or NOT RUN (with the reason),
+taken from the real build and test output, never from memory. End with `Totals: PASS x, FAIL y, N/A z, NOT RUN w`. Use `-` for the gate columns that do not apply to a frontend ticket.
+Stage both files. If they are not inside `allowed_paths`, STOP and ask the owner to add them. A ticket is not done while any AC is FAIL or NOT RUN without a written owner decision.
+
 ```
 =========================================
 COMPLETE
@@ -719,6 +725,10 @@ CONTEXT DOCUMENT
 DISCOVERY
 - Answered from context : <count of checklist items>
 - Required a file read  : <count>, and which - each one is a context gap
+
+AC RESULTS
+- File   : docs/reports/<TICKET_ID>/ac-results.md
+- Totals : PASS <x>, FAIL <y>, N/A <z>, NOT RUN <w>
 
 STAGED (not committed)
 - <path>

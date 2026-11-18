@@ -11,7 +11,7 @@ Run the frontend agent for `$ARGUMENTS`.
 
 Preconditions (check first; STOP and tell the owner if any fails)
 - `/start-ticket` was run for this ID, the owner approved the plan, and `.claude/state/active-ticket.json` names this ticket.
-- The ticket's component is a frontend component and `allowed_paths` covers `src/frontend/**`, `tickets/<ID>.md` (a `## Delivery` note is appended to the ticket) and `docs/reports/<ID>/**` if a report is wanted.
+- The ticket's component is a frontend component and `allowed_paths` covers `src/frontend/**`, `tickets/<ID>.md` (a `## Delivery` note is appended to the ticket), `docs/reports/<ID>/**` and `docs/reports/ac-log.md` (the AC results file and the roll-up row).
 - The ticket `risk` is low or medium; for high or blocked, stop.
 - If the ticket has `depends_on` backend tickets, their API contract must exist in `docs/specs/`. If not, STOP: do not invent a contract.
 
