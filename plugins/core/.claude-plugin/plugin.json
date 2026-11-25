@@ -1,6 +1,6 @@
 {
   "name": "core",
-  "version": "0.3.2",
-  "description": "Core Mini WMS workflow: ticket-scout, change-implementer, test-writer and the start-ticket skill",
+  "version": "0.4.0",
+  "description": "Core Mini WMS workflow: ticket-scout, change-implementer, test-writer, five read-only review agents, and the ticket, pipeline and review skills",
   "author": { "name": "shivansh-gupta-ness" }
 }
